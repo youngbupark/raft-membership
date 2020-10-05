@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package membership;
+
+service RaftMemberShip {
+    rpc Watch (stream WatchRequest) returns (stream WatchResponse);
+}
+
+message WatchRequest {
+    string version = 1;
+    string name = 2;
+}
+
+message WatchResponse {
+    string data = 1;
+}
